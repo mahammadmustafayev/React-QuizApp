@@ -1,16 +1,20 @@
-import React from 'react'
 
-function Question({question,handleAnswer}) {
+
+function Question({currentQuestions,handleAnswer}) {
+    
   return (
-    <div>
-      <h2>{question.question}</h2>
-      <div>
-        {question.options.map((option, index) => (
-          <button key={index} onClick={() => handleAnswer(option)}>
-            {option}
-          </button>
-        ))}
-      </div>
+    <div className='center' key={currentQuestions.id}>  
+       <div className="container">
+          <h1>{currentQuestions.question}</h1>
+          <div className='questionOptions'>
+            {currentQuestions.options.map((option,index)=>(
+                <button key={index} className="btn" onClick={()=>handleAnswer(option)}>
+                    <span>{option}</span>
+                </button>
+
+            ))}
+          </div>
+       </div>
     </div>
   )
 }
